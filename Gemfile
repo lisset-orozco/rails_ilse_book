@@ -68,7 +68,7 @@ group :development do
   # Pronto is an automatic code review ruby gem
   gem 'pronto', '~> 0.10.0'
   #  Rubocop as reference to styling rules.
-  gem 'rubocop', '~> 0.69.0'
+  gem 'rubocop', '~> 0.69.0', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -78,8 +78,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # Run Selenium tests more easily 
+  gem 'webdrivers', '~> 3.9', '>= 3.9.2'
 
   # rspec-rails is a testing framework for Rails 
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
