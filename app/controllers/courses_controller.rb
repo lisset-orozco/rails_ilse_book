@@ -3,7 +3,9 @@
 # courses
 class CoursesController < ApplicationController
   # before_action :course_params, only: %i[index show]
-  def index; end
+  def index
+    @courses = Course.all
+  end
 
   def new
     @course = Course.new
@@ -21,7 +23,9 @@ class CoursesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @course = Course.find_by_id(params[:id])
+  end
 
   def edit; end
 
