@@ -2,7 +2,8 @@
 
 # courses
 class CoursesController < ApplicationController
-  # before_action :course_params, only: %i[index show]
+  before_action :find_course, only: %i[show edit update]
+
   def index
     @courses = Course.all
   end
@@ -23,20 +24,29 @@ class CoursesController < ApplicationController
     end
   end
 
-  def show
-    @course = Course.find_by_id(params[:id])
-  end
+  def show; end
 
   def edit; end
 
-  def update; end
+  def update
+    if @course.update(course_params)
+      flash[:notice] = 'The course has been updated.'
+      redirect_to @course
+    else
+      flash[:error] = 'The course has not been updated.'
+      render action: 'edit'
+    end
+  end
 
   def destroy; end
 
   private
 
   def course_params
-    puts params
     params.require(:course).permit(:name, :description)
+  end
+
+  def find_course
+    @course = Course.find_by_id(params[:id])
   end
 end
