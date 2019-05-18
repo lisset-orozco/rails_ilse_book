@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Admins can create projects', type: :feature do
+RSpec.feature 'Admins can create courses', type: :feature do
   scenario 'with valid attributes' do
     visit '/'
     click_link 'New Course'

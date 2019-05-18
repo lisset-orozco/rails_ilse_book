@@ -2,7 +2,7 @@
 
 # courses
 class CoursesController < ApplicationController
-  before_action :find_course, only: %i[show edit update]
+  before_action :find_course, only: %i[show edit update destroy]
 
   def index
     @courses = Course.all
@@ -38,7 +38,11 @@ class CoursesController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @course.destroy
+    flash[:notice] = 'The course has been removed.'
+    redirect_to courses_path
+  end
 
   private
 
