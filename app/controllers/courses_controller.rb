@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
       redirect_to @course
     else
       flash[:error] = 'The course has not been created'
-      render action: 'new'
+      render 'new'
     end
   end
 
@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
       redirect_to @course
     else
       flash[:error] = 'The course has not been updated.'
-      render action: 'edit'
+      render 'edit'
     end
   end
 
