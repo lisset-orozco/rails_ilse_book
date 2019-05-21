@@ -3,7 +3,6 @@
 # course material
 class MaterialsController < ApplicationController
   before_action :find_course
-  before_action :material_params, only: %i[create update]
   before_action :find_material, only: %i[show edit update destroy]
 
   def index; end

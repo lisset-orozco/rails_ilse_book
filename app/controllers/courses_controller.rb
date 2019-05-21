@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
       flash[:notice] = 'The course has been created.'
       redirect_to @course
     else
-      flash[:error] = 'The course has not been created'
+      flash[:error] = 'The course has not been created.'
       render 'new'
     end
   end
