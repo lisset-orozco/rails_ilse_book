@@ -4,3 +4,7 @@
 <%= link_to 'Edit', edit_course_path(@course) %>
 <%= link_to 'Delete', course_path(@course), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>
 <%= link_to 'Add material', new_course_material_path(@course) %><br/>
+
+<% @course.materials.each do |material| %>
+  <%= link_to material.name, [@course, material] %><br/>
+<% end %>

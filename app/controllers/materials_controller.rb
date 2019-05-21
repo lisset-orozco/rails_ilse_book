@@ -2,8 +2,9 @@
 
 # course material
 class MaterialsController < ApplicationController
-  before_action :find_course, only: %i[new create update]
+  before_action :find_course, only: %i[new show create update]
   before_action :material_params, only: %i[create update]
+  before_action :find_material, only: :show
 
   def index; end
 
@@ -42,5 +43,9 @@ class MaterialsController < ApplicationController
 
   def find_course
     @course = Course.find_by_id(params[:course_id])
+  end
+
+  def find_material
+    @material = @course.materials.find_by_id(params[:id])
   end
 end

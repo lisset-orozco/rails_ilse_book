@@ -53,6 +53,7 @@ group :development, :test do
   gem 'pronto-rails_best_practices', '~> 0.10.0', require: false
   gem 'pronto-reek', '~> 0.10.0', require: false
   gem 'pronto-rubocop', '~> 0.10.0', require: false
+  gem 'pry-byebug', '~> 3.7'
   # Use Pry as your rails console
   gem 'pry-rails', '~> 0.3.9'
   # rspec-rails is a testing framework for Rails
