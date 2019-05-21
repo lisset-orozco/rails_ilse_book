@@ -2,9 +2,9 @@
 
 # course material
 class MaterialsController < ApplicationController
-  before_action :find_course, only: %i[new show create update]
+  before_action :find_course
   before_action :material_params, only: %i[create update]
-  before_action :find_material, only: :show
+  before_action :find_material, only: %i[show edit update]
 
   def index; end
 
@@ -27,7 +27,15 @@ class MaterialsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @material.update(material_params)
+      flash[:notice] = 'The material has been updated.'
+      redirect_to [@course, @material]
+    else
+      flash[:error] = 'The material has not been updated.'
+      render 'edit'
+    end
+  end
 
   def destroy; end
 
