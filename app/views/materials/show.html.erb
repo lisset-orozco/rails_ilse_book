@@ -3,3 +3,4 @@
 <p><%= @material.file %></p>
 
 <%= link_to 'Edit', edit_course_material_path(@course) %><br/>
+<%= link_to 'Delete', course_material_path(@course, @material), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>

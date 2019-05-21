@@ -4,7 +4,7 @@
 class MaterialsController < ApplicationController
   before_action :find_course
   before_action :material_params, only: %i[create update]
-  before_action :find_material, only: %i[show edit update]
+  before_action :find_material, only: %i[show edit update destroy]
 
   def index; end
 
@@ -37,7 +37,11 @@ class MaterialsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @material.destroy
+    flash[:notice] = 'The course has been removed.'
+    redirect_to @course
+  end
 
   private
 
