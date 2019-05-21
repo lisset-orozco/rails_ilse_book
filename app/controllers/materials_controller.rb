@@ -15,9 +15,10 @@ class MaterialsController < ApplicationController
     @material = @course.materials.build(material_params)
 
     if @material.save
-      flash[:notice] = 'The file has been saved.'
+      flash[:notice] = 'The material has been saved.'
       redirect_to @course
     else
+      flash[:error] = 'The material has not been saved.'
       render 'new'
     end
   end
@@ -38,7 +39,7 @@ class MaterialsController < ApplicationController
 
   def destroy
     @material.destroy
-    flash[:notice] = 'The course has been removed.'
+    flash[:notice] = 'The material has been removed.'
     redirect_to @course
   end
 
