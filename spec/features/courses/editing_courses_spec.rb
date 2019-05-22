@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users can edit courses', type: :feature do
   let!(:course) { FactoryBot.create(:course) }
-  
+
   before do
     admin = FactoryBot.create(:admin)
     visit '/'
