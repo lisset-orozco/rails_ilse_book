@@ -2,6 +2,7 @@
 
 # courses
 class CoursesController < ApplicationController
+  before_action :authenticate_admin!, only: %i[new create update destroy]
   before_action :find_course, only: %i[show edit update destroy]
 
   def index
