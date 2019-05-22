@@ -4,6 +4,7 @@
 class MaterialsController < ApplicationController
   before_action :find_course
   before_action :find_material, only: %i[show edit update destroy]
+  before_action :set_s3_direct_post, only: %i[new edit create update]
 
   def index; end
 
@@ -59,5 +60,11 @@ class MaterialsController < ApplicationController
 
   def find_material
     @material = @course.materials.find_by_id(params[:id])
+  end
+
+  def set_s3_direct_post
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}",
+                                               success_action_status: '201',
+                                               acl: 'public-read')
   end
 end
