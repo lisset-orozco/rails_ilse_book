@@ -1,8 +1,10 @@
 <h1><%= @material.name %></h1>
 <p><%= @material.description %></p>
 
-<%= link_to 'Edit', edit_course_material_path(@course) %><br/>
-<%= link_to 'Delete', course_material_path(@course, @material), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>
+<% if admin_signed_in? %>
+	<%= link_to 'Edit', edit_course_material_path(@course) %><br/>
+	<%= link_to 'Delete', course_material_path(@course, @material), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>
+<% end %>
 
 <% if !@material.file.include? '.png' and !@material.file.include? '.jpg' and !@material.file.include? '.jpeg' and !@material.file.include? '.gif' %>
 	<%= link_to 'Download', @material.file %><br/>
