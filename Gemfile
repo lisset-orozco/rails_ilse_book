@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Provides both resource oriented interfaces and API clients for AWS services.
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.6', '>= 4.6.2'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
