@@ -3,6 +3,6 @@ FactoryBot.define do
     association :course, factory: :course
     name { Faker::Artist.name }
     description { Faker::ChuckNorris.fact }
-    file { Faker::File.file_name }
+    file { "react.txt" }
   end
 end

@@ -3,6 +3,7 @@
 # courses
 class CoursesController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create update destroy]
+  before_action :authenticate_user_or_admin, only: :show
   before_action :find_course, only: %i[show edit update destroy]
 
   def index
@@ -53,5 +54,12 @@ class CoursesController < ApplicationController
 
   def find_course
     @course = Course.find_by_id(params[:id])
+  end
+
+  def authenticate_user_or_admin
+    return if admin_signed_in? || user_signed_in?
+
+    flash[:notice] = 'You need to login to see this information.'
+    redirect_to root_url
   end
 end

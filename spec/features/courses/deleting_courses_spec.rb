@@ -7,8 +7,7 @@ RSpec.feature 'Admins can delete courses', type: :feature do
 
   before do
     admin = FactoryBot.create(:admin)
-    visit '/'
-    click_link 'Step in'
+    visit '/admins/sign_in'
     fill_in 'admin_email', with: admin.email
     fill_in 'admin_password', with: admin.password
     click_button 'Log in'

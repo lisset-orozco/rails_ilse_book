@@ -2,6 +2,8 @@
 	<%= link_to 'New Course', new_course_path %><br/><br/>
 <% end %>
 
-<% @courses.each do |course| %>
-  <%= link_to course.name, course %><br/>
+<% if admin_signed_in? || user_signed_in? %>
+  <% @courses.each do |course| %>
+    <%= link_to course.name, course %><br/>
+  <% end %>
 <% end %>
