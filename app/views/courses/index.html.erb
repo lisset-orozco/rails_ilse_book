@@ -2,8 +2,11 @@
 	<%= link_to 'New Course', new_course_path %><br/><br/>
 <% end %>
 
-<% if admin_signed_in? || user_signed_in? %>
-  <% @courses.each do |course| %>
-    <%= link_to course.name, course %><br/>
+<div class='courses'>
+  <% if admin_signed_in? || user_signed_in? %>
+    <h2>All our courses</h2>
+    <% @courses.each do |course| %>
+      <%= link_to course.name, course, class:'course' %><br/>
+    <% end %>
   <% end %>
-<% end %>
+</div>

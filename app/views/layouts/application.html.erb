@@ -16,14 +16,15 @@
       <% end %>
     <% end %>
 
-    <% if admin_signed_in? %>
-      <%= link_to 'Log out', destroy_admin_session_path %><br/><br/>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= link_to 'Log out', destroy_user_session_path %><br/><br/>
-    <% else %>
-      <%= link_to 'Step in', new_user_session_path %><br/><br/>
-    <% end %>
+    <div class="navigation">
+      <% if admin_signed_in? %>
+        <%= link_to 'Log out', destroy_admin_session_path %><br/><br/>
+      <% elsif user_signed_in? %>
+        <%= link_to 'Log out', destroy_user_session_path %><br/><br/>
+      <% else %>
+        <%= link_to 'Step in', new_user_session_path %><br/><br/>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
