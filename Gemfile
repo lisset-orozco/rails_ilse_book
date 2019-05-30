@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.6', '>= 4.6.2'
+# A modern responsive front-end framework based on Material Design
+gem 'materialize-sass', '~> 1.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

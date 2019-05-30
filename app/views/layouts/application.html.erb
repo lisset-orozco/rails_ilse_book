@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
@@ -16,15 +17,15 @@
       <% end %>
     <% end %>
 
-    <div class="navigation">
-      <% if admin_signed_in? %>
-        <%= link_to 'Log out', destroy_admin_session_path %><br/><br/>
-      <% elsif user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path %><br/><br/>
-      <% else %>
-        <%= link_to 'Step in', new_user_session_path %><br/><br/>
-      <% end %>
-    </div>
-    <%= yield %>
+    <% if admin_signed_in? || user_signed_in?  %>
+      <%= render 'partials/nav' %>
+      <div class='big-padding card-height content-center-card '>
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class='big-padding'>
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>

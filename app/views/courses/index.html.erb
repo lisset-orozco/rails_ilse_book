@@ -1,12 +1,13 @@
-<% if admin_signed_in? %>
-	<%= link_to 'New Course', new_course_path %><br/><br/>
-<% end %>
-
-<div class='courses'>
+<div>
   <% if admin_signed_in? || user_signed_in? %>
-    <h2>All our courses</h2>
-    <% @courses.each do |course| %>
-      <%= link_to course.name, course, class:'course' %><br/>
-    <% end %>
+    <span class='title'>All</span>
+    <span class='title'>our</span>
+    <span class='title'>courses</span>
+    <br/><br/>
+    <div class="collection">
+      <% @courses.each do |course| %>
+        <%= link_to course.name, course, class:"collection-item color-list" %>
+      <% end %>
+    </div>
   <% end %>
 </div>

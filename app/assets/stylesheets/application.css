@@ -14,6 +14,61 @@
  *= require_self
  */
 
+body {
+  background-image: url('back.jpeg');
+  background-size: cover;
+  height:  auto; 
+  min-height:  100vh; 
+  width:  100vw; 
+  margin:  0;
+}
+
+.h2 {
+  font-weight: 400;
+}
+
+.content-center { 
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.content-center-card { 
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.color-list {
+  background: rgb(238, 226, 248);
+}
+
+
+/*
+
+justify-content: center;
+  display: flex;
+  margin-bottom: 20px;
+
+justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+    /* max-width: 500px; */
+    /* max-height: 100px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* float: none; 
+
+  display:  flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  justify-content: center;
+
+margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 .progress {
   max-width: 600px;
   margin:    0.2em 0 0.2em 0;
@@ -24,13 +79,6 @@
   padding-left: 0.2em;
   color:   white;
   display: none;
-}
-
-body {
-  height:  auto; 
-  min-height:  100vh; 
-  width:  100vw; 
-  margin:  0;
 }
 
 a {
@@ -104,3 +152,4 @@ textarea {
 .course:nth-of-type(even) {
   background:  rgba(0,0,0,0);
 }
+*/
