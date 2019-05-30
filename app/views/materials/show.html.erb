@@ -1,0 +1,17 @@
+<div class="content-center ">
+	<h2 class="center"><%= @material.name %></h2>
+	<p><%= @material.description %></p>
+
+	<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_course_material_path(@course) %><br/>
+		<%= link_to 'Delete', course_material_path(@course, @material), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>
+	<% end %>
+
+	<% if !@material.file.include? '.png' and !@material.file.include? '.jpg' and !@material.file.include? '.jpeg' and !@material.file.include? '.gif' %>
+		<%= link_to 'Download', @material.file %><br/>
+	<% else %>
+		<div class="center">
+			<%= image_tag @material.file , class:'image-wh' %><br/>
+		</div>
+	<% end %>
+</div>

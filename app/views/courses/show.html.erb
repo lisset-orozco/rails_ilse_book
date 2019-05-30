@@ -1,0 +1,21 @@
+<div>
+  <div class="center">
+    <h1><%= @course.name %></h1>
+    <p><%= @course.description %></p>
+  </div>
+
+  <% if admin_signed_in? %>
+    <%= link_to 'Edit', edit_course_path(@course) %>
+    <%= link_to 'Delete', course_path(@course), method: :delete, data: { confirm: '¿are you sure? This action can not be undone'} %><br/>
+    <%= link_to 'Add material', new_course_material_path(@course) %><br/>
+  <% end %>
+
+  <% if @course.materials.any? %>
+    <h5>Materials</h5>
+    <div class="collection">
+      <% @course.materials.each do |material| %>
+        <%= link_to material.name, [@course, material], class:"collection-item color-list" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

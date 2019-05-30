@@ -15,7 +15,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+# This gem provides jQuery and the jQuery-ujs driver
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,6 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Provides both resource oriented interfaces and API clients for AWS services.
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.6', '>= 4.6.2'
+# A modern responsive front-end framework based on Material Design
+gem 'materialize-sass', '~> 1.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -53,8 +61,11 @@ group :development, :test do
   gem 'pronto-rails_best_practices', '~> 0.10.0', require: false
   gem 'pronto-reek', '~> 0.10.0', require: false
   gem 'pronto-rubocop', '~> 0.10.0', require: false
+  gem 'pry-byebug', '~> 3.7'
   # Use Pry as your rails console
   gem 'pry-rails', '~> 0.3.9'
+  # rspec-rails is a testing framework for Rails
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
   # check for performance optimizations in Ruby code
   gem 'rubocop-performance', '~> 1.3'
   # matchers
@@ -62,28 +73,25 @@ group :development, :test do
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Pronto is an automatic code review ruby gem
   gem 'pronto', '~> 0.10.0'
   #  Rubocop as reference to styling rules.
-  gem 'rubocop', '~> 0.69.0'
+  gem 'rubocop', '~> 0.69.0', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
-
-  # rspec-rails is a testing framework for Rails 
-  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  # Run Selenium tests more easily
+  gem 'webdrivers', '~> 3.9', '>= 3.9.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

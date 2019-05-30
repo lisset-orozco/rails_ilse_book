@@ -1,0 +1,13 @@
+<div>
+  <% if admin_signed_in? || user_signed_in? %>
+    <span class='title'>All</span>
+    <span class='title'>our</span>
+    <span class='title'>courses</span>
+    <br/><br/>
+    <div class="collection">
+      <% @courses.each do |course| %>
+        <%= link_to course.name, course, class:"collection-item color-list" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

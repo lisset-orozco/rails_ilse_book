@@ -1,0 +1,56 @@
+<nav class="nav-extended purple darken-4">
+  <div class="nav-wrapper">
+    <%= link_to 'Logo', '/', class:"brand-logo center" %>
+
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down nav-right">
+      <li>
+        <%= link_to 'Home', '/' %>
+      </li>
+      <% if admin_signed_in? %>
+        <li>
+          <%= link_to 'New Course', new_course_path %>
+        </li>
+        <li>
+          <%= link_to 'Log out', destroy_admin_session_path %>
+        </li>
+      <% elsif user_signed_in? %>
+        <li>
+          <%= link_to 'Log out', destroy_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <%= image_tag "image2.jpg", width:'100%' %>
+      </div>
+      <%= image_tag "user.png", class:'circle' %>
+      <% profile = admin_signed_in? ? current_admin : current_user %>
+        <span class="white-text name"><%= profile.name %></span>
+        <span class="white-text email"><%= profile.email %></span>
+    </div>
+  </li>
+  <li>
+    <%= link_to 'Home', '/' %>
+  </li>
+  <% if admin_signed_in? %>
+    <li>
+      <%= link_to 'New Course', new_course_path %>
+    </li>
+    <li>
+      <%= link_to 'Log out', destroy_admin_session_path %>
+    </li>
+  <% elsif user_signed_in? %>
+    <li>
+      <%= link_to 'Log out', destroy_user_session_path %>
+    </li>
+  <% end %>
+</ul>

@@ -32,3 +32,6 @@
 *.DS_Store
 .pronto.yml
 .fasterer.yml
+
+# dotenv
+.env
