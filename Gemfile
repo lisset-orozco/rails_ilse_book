@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Provides both resource oriented interfaces and API clients for AWS services.
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 # A modern responsive front-end framework based on Material Design
 gem 'materialize-sass', '~> 1.0'
 
